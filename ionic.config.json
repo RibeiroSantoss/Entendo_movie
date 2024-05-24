@@ -1,0 +1,7 @@
+{
+  "name": "movie-quotes",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

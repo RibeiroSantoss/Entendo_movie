@@ -1,0 +1,54 @@
+
+<ion-header class="titulo">
+  <ion-toolbar>
+    <ion-title>Desenvolvedora <b>EN</b>tendo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="welcome-message ion-text-center">
+    <h2>Bem-vindo à <b>EN</b>tendo de filmes!</h2>
+    <p>Procure seu filme favorito para ver citações memoráveis.</p>
+  </div>
+
+  <div class="totoro-image ion-text-center">
+    <img src="assets/totoro.png" alt="Totoro Image">
+  </div>
+
+
+  <ion-list *ngIf="suggestions.length > 0">
+    <ion-card *ngFor="let suggestion of suggestions">
+      <ion-card-content class="ion-text-center">
+        <ion-img [src]="suggestion.posterUrl" *ngIf="suggestion.posterUrl" alt="{{ suggestion.title }} Poster"></ion-img>
+        <ion-img *ngIf="!suggestion.posterUrl" src="assets/no-poster.png" alt="No Poster Available"></ion-img>
+        <p class="movie-title">{{ suggestion.title }}</p> 
+      </ion-card-content>
+    </ion-card>
+    
+      <ion-buttons slot="start">
+        <ion-back-button style="background-color: rgb(35, 118, 173);"  defaultHref="/"></ion-back-button>
+      </ion-buttons>
+    
+  </ion-list>
+
+
+
+  <ion-searchbar
+    [(ngModel)]="searchTerm"
+    placeholder="Procure um Filme!"
+  ></ion-searchbar>
+
+  
+  
+
+  <div class="ion-text-center">
+    <ion-button (click)="searchQuotes()">Pesquisar!</ion-button> 
+  </div>
+
+  
+    <div class="ion-text-center">
+    <ion-button  routerLink="/members">Ver Membros do Grupo</ion-button>
+  </div>
+
+  
+</ion-content>
